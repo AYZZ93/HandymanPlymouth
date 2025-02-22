@@ -1,58 +1,423 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Handyman Plymouth - Professional Handyman Services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional handyman services in Plymouth. Reliable and affordable solutions for all your home improvement needs.">
-    <meta name="keywords" content="Handyman Plymouth, Handyman Services, Home Improvement, Plymouth Handyman, Local Handyman">
-    <!-- Link to CSS file -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>:: HANDYMAN PLYMOUTH ::</title>
+  <meta name="description" content="Handyman Plymouth provides professional handyman services across Plymouth, from small repairs to larger home improvement projects. Quality workmanship and reliable service guaranteed.">
+  <meta NAME="keywords" CONTENT="Handyman Plymouth, Home Repairs, Maintenance, Plumbing, Carpentry, Electrical, Property Maintenance"/>
+  <meta name="author" content="Handyman Plymouth">
+  <meta property="og:title" content=":: HANDYMAN PLYMOUTH ::">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.handymanplymouth.com/">
+  <meta property="og:description" content="Professional handyman services in Plymouth - From small repairs to large projects, we handle all your home improvement needs with quality and care.">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      color: #222; 
+      line-height: 1.9em;
+    }
+    
+    /* Top Bar */
+    .top-bar {
+      background: #4a90e2;
+      color: white;
+      padding: 10px 0;
+      font-size: 0.9em;
+    }
+    
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .contact-info i {
+      margin-right: 5px;
+    }
+    
+    .social-links a {
+      color: white;
+      margin-left: 15px;
+    }
+    
+    /* Header & Navigation */
+    #banner-home {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/api/placeholder/1920/600") center/cover;
+      min-height: 600px;
+      color: #fff;
+      position: relative;
+    }
+    
+    #banner-nav {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      padding: 20px 5%;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    #logo img { max-height: 40px; }
+    
+    #nav a {
+      margin: 15px;
+      color: #202b2c;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    #nav a:hover {
+      color: #4a90e2;
+    }
+    
+    .banner-cta {
+      color: #fff;
+      font-size: 0.9em;
+      font-weight: 700;
+      padding: 12px 30px;
+      background-color: #4a90e2;
+      border: 2px solid #4a90e2;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .banner-cta:hover {
+      background: transparent;
+      color: #4a90e2;
+    }
+    
+    .primary { color: #4a90e2; }
+    .secondary { color: #ffa500; }
+    
+    /* Hero Section */
+    #banner-home-content {
+      padding: 160px 5% 80px 5%;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 { font-size: 4em; margin-bottom: 20px; line-height: 1.2; }
+    h2 { font-size: 1.8em; color: #ffa500; margin-bottom: 20px; }
+    
+    /* Services Section */
+    .service-section {
+      padding: 80px 5%;
+      text-align: center;
+    }
+    
+    .section-title {
+      margin-bottom: 50px;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .service-card i {
+      font-size: 2.5em;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+    
+    /* About Section */
+    .about-section {
+      background: #f8f9fa;
+      padding: 80px 5%;
+    }
+    
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background: #4a90e2;
+      color: white;
+      padding: 60px 5%;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stat-item h3 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 5%;
+      background: white;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-card {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      font-size: 4em;
+      color: #4a90e2;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      opacity: 0.2;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      background: #202b2c;
+      color: white;
+      padding: 80px 5%;
+      text-align: center;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+    }
+    
+    .contact-item i {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+    
+    /* Footer */
+    footer {
+      background: #111;
+      color: white;
+      padding: 40px 5% 20px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-links h4 {
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #4a90e2;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #333;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .top-bar-content { flex-direction: column; text-align: center; }
+      .social-links { margin-top: 10px; }
+      #banner-nav { flex-direction: column; text-align: center; }
+      #nav { margin-top: 20px; }
+      h1 { font-size: 2.5em; }
+      .about-content { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Handyman Plymouth</h1>
-            <p>Your Local Handyman Experts</p>
-        </div>
-    </header>
-    <nav>
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section class="hero">
-            <img src="images/handyman.jpg" alt="Handyman Services" class="hero-img">
-            <div class="hero-text">
-                <h2>Reliable Handyman Services in Plymouth</h2>
-                <p>Offering a wide range of home improvement and repair services.</p>
-            </div>
-        </section>
-        <section class="content">
-            <h3>Welcome to Handyman Plymouth</h3>
-            <p>We provide professional and affordable handyman services in Plymouth. Our experienced team is here to help with all your home improvement needs, from small repairs to larger projects. Trust us to get the job done right the first time.</p>
-            <h3>Our Services</h3>
-            <p>We offer a variety of services, including:</p>
-            <ul>
-                <li>Carpentry</li>
-                <li>Plumbing</li>
-                <li>Electrical Work</li>
-                <li>Painting and Decorating</li>
-                <li>General Repairs</li>
-                <li>And much more!</li>
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Handyman Plymouth. All rights reserved. <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
-        </div>
-    </footer>
-    <!-- Link to JavaScript file -->
-    <script src="scripts.js"></script>
-</body>
-</html>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="contact-info">
+        <span><i class="fas fa-phone"></i> Call Us: 07123 456789</span>
+        <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@handymanplymouth.com</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Hero Section -->
+  <div id="banner-home">
+    <div id="banner-nav">
+      <div id="logo">
+        <img src="/api/placeholder/200/50" alt="Handyman Plymouth Logo">
+      </div>
+      <div id="nav">
+        <a href="index.html" class="primary">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="services.html">SERVICES</a>
+        <a href="reviews.html">REVIEWS</a>
+        <a href="contact.html" class="banner-cta">GET A QUOTE</a>
+      </div>
+    </div>
+    
+    <div id="banner-home-content">
+      <h1><span class="secondary">HANDYMAN</span> PLYMOUTH<span class="primary">.</span></h1>
+      <h2>YOUR TRUSTED LOCAL HANDYMAN SERVICE</h2>
+      <p style="max-width: 600px; margin: 0 auto 30px auto; color: white;">
+        Professional, reliable, and affordable handyman services in Plymouth. From minor repairs to major improvements, we deliver quality workmanship every time.
+      </p>
+      <div>
+        <a href="services.html" class="banner-cta">OUR SERVICES</a>
+        <a href="contact.html" class="banner-cta" style="background: transparent; border-color: white;">GET A QUOTE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div class="service-section">
+    <div class="section-title">
+      <h2>OUR SERVICES</h2>
+      <p>Professional solutions for all your home improvement needs</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-tools"></i>
+        <h3>General Repairs</h3>
+        <p>From fixing leaks to mounting TVs, we handle all household repairs</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-hammer"></i>
+        <h3>Carpentry</h3>
+        <p>Custom shelving, door repairs, and wood repairs</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-faucet"></i>
+        <h3>Plumbing</h3>
+        <p>Tap replacements, toilet repairs, and basic plumbing services</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-couch"></i>
+        <h3>Assembly</h3>
+        <p>Furniture assembly and installation services</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="about-section">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="/api/placeholder/600/400" alt="About Handyman Plymouth">
+      </div>
+      <div>
+        <h2>About Us</h2>
+        <p>With over 10 years of experience, Handyman Plymouth has been providing top-quality handyman services to homeowners and businesses throughout Plymouth.</p>
+        <p>Our commitment to quality workmanship, reliable service, and customer satisfaction has made us the trusted choice for all your home improvement needs.</p>
+        <a href="about.html" class="banner-cta" style="margin-left: 0;">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Happy Customers</p>
+      </div>
+      <div class="stat-item">
+        <h3>10+</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-item">
+        <h3>1000+</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat-item">
+        <h3>4.9</h3>
+        <p>Average Rating</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="testimonials-section">
+    <div class="section-title">
+      <h2>What Our Clients Say</h2>
+      <p>Don't just take our word for it</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Excellent service
